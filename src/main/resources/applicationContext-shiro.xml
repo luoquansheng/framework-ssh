@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/aop/
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+
+    <!-- 加密管理器对象 -->
+    <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher" id="credentialsMatcher">
+        <!--设置加密算法为MD5-->
+        <property name="hashAlgorithmName" value="md5"/>
+        <!--设置加密次数为1次-->
+        <property name="hashIterations" value="1"/>
+    </bean>
+
+    <!-- 自定义域 -->
+    <bean class="com.luoquansheng.car.realms.CustomRealm" id="customRealm">
+        <!--将加密管理器对象，加入到自定义的Realm中-->
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+    <!-- 创建SecurityManager对象 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- 将realm设置到securityManager主体中 -->
+        <property name="realm" ref="customRealm"/>
+    </bean>
+
+    <!-- Shiro过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 登录页的url -->
+        <property name="loginUrl" value="/login"/>
+        <!-- 未认证的跳转页面 -->
+        <property name="unauthorizedUrl" value="src/webapp/WEB-INF/views/403.jsp"/>
+        <!-- 过滤器链//从上往下匹配拦截认证 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- 登录页面不需要拦截 -->
+                /login/** = anon
+                /register/** = anon
+                <!-- 登录页面以外的需要拦截认证 -->
+                /logout = logout
+                /** = authc
+            </value>
+        </property>
+    </bean>
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 开启Shiro注解 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.luoquansheng.car.entity">
+
+    <class name="UserInfo" table="t_user_info">
+        <id name="id" length="32">
+            <generator class="uuid" />
+        </id>
+        <property name="userName" column="user_name" length="50"/>
+        <property name="ciphers" column="ciphers" length="50"/>
+        <property name="gender" column="gender" length="10"/>
+        <property name="birthday" column="birthday"/>
+        <property name="email" column="email" length="50"/>
+        <property name="phone" column="phone" length="50"/>
+        <property name="telePhone" column="tele_phone" length="50"/>
+        <property name="address" column="address" length="255"/>
+        <property name="createDate" column="create_date"/>
+    </class>
+
+</hibernate-mapping>
