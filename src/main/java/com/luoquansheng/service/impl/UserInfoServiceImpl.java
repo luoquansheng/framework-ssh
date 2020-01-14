@@ -1,24 +1,21 @@
-package com.luoquansheng.car.service.impl;
+package com.luoquansheng.service.impl;
 
-import com.luoquansheng.car.dao.UserInfoDao;
-import com.luoquansheng.car.entity.UserInfo;
-import com.luoquansheng.car.service.UserInfoService;
-import com.luoquansheng.car.util.ShiroUtil;
+import com.luoquansheng.dao.UserInfoDao;
+import com.luoquansheng.entity.UserInfo;
+import com.luoquansheng.service.UserInfoService;
+import com.luoquansheng.util.ShiroUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.List;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：UserInfoServiceImpl
  * @description:
  * @author: 罗铨生

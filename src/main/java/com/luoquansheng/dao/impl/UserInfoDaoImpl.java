@@ -1,11 +1,11 @@
-package com.luoquansheng.car.dao.impl;
+package com.luoquansheng.dao.impl;
 
-import com.luoquansheng.car.dao.UserInfoDao;
-import com.luoquansheng.car.entity.UserInfo;
+import com.luoquansheng.dao.UserInfoDao;
+import com.luoquansheng.entity.UserInfo;
 import org.springframework.stereotype.Repository;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：UserInfoDaoImpl
  * @description:
  * @author: 罗铨生

@@ -1,6 +1,6 @@
-package com.luoquansheng.car.service;
+package com.luoquansheng.service;
 
-import com.luoquansheng.car.entity.UserInfo;
+import com.luoquansheng.entity.UserInfo;
 
 public interface UserInfoService {
 

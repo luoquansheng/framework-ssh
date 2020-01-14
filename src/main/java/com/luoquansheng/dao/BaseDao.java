@@ -1,4 +1,4 @@
-package com.luoquansheng.car.dao;
+package com.luoquansheng.dao;
 
 import java.util.List;
 
@@ -19,7 +19,5 @@ public interface BaseDao<T> {
     public List<T> findByCondition(String hql, Object...obj);
 
     public String getSimpleName();
-
-    // PageBean getPageBean(int pageNum, String queryListHQL, Object[] parameters);
 
 }

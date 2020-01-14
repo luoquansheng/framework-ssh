@@ -1,17 +1,13 @@
-package com.luoquansheng.car.realms;
+package com.luoquansheng.realms;
 
-import com.luoquansheng.car.constant.ShiroConstant;
-import com.luoquansheng.car.dao.UserInfoDao;
-import com.luoquansheng.car.entity.UserInfo;
-import org.apache.shiro.SecurityUtils;
+import com.luoquansheng.dao.UserInfoDao;
+import com.luoquansheng.entity.UserInfo;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthorizingRealm;
-import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：CustomRealm
  * @description:
  * @author: 罗铨生

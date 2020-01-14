@@ -1,7 +1,7 @@
-package com.luoquansheng.car.constant;
+package com.luoquansheng.constant;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：ShiroConstant
  * @description:
  * @author: 罗铨生

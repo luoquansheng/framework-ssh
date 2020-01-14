@@ -1,11 +1,11 @@
-package com.luoquansheng.car.util;
+package com.luoquansheng.util;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：ShiroUtil
  * @description:
  * @author: 罗铨生

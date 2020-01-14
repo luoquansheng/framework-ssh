@@ -1,7 +1,6 @@
-package com.luoquansheng.car.dao.impl;
+package com.luoquansheng.dao.impl;
 
-import com.luoquansheng.car.dao.BaseDao;
-import org.hibernate.Criteria;
+import com.luoquansheng.dao.BaseDao;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：BaseDaoImpl
  * @description:
  * @author: 罗铨生
@@ -23,7 +22,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
     @Autowired
     private SessionFactory sessionFactory;
-    protected Class<T> clazz; // 这是一个问题！
+    protected Class<T> clazz;
 
     public BaseDaoImpl() {
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();

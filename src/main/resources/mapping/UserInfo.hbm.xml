@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.luoquansheng.car.entity">
+<hibernate-mapping package="com.luoquansheng.entity">
 
-    <class name="UserInfo" table="t_user_info">
+    <class name="com.luoquansheng.entity.UserInfo" table="t_user_info">
         <id name="id" length="32">
             <generator class="uuid" />
         </id>

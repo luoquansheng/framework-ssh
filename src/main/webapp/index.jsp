@@ -1,6 +1,3 @@
-
-
-<%@ page session="false" %>
 <html>
 <body>
 <h2>Hello World!</h2>

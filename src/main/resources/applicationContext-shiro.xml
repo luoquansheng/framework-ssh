@@ -23,7 +23,7 @@
     </bean>
 
     <!-- 自定义域 -->
-    <bean class="com.luoquansheng.car.realms.CustomRealm" id="customRealm">
+    <bean class="com.luoquansheng.realms.CustomRealm" id="customRealm">
         <!--将加密管理器对象，加入到自定义的Realm中-->
         <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>

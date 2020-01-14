@@ -17,13 +17,13 @@
     <context:annotation-config />
 
     <!-- 3. 配置Service以及Dao的自动扫描包 -->
-    <context:component-scan base-package="com.luoquansheng.car.dao.impl" />
-    <context:component-scan base-package="com.luoquansheng.car.service.impl" />
+    <context:component-scan base-package="com.luoquansheng.dao.impl" />
+    <context:component-scan base-package="com.luoquansheng.service.impl" />
 
     <!-- 1.数据源 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/car-manager?useAffectedRows=true&amp;serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/framework_ssh?useAffectedRows=true&amp;serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"></property>
         <property name="username" value="root"></property>
         <property name="password" value="123456"></property>
         <!-- 配置初始化大小、最小、最大 -->

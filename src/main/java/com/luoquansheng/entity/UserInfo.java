@@ -1,10 +1,10 @@
-package com.luoquansheng.car.entity;
+package com.luoquansheng.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @project_name：car-manager
+ * @project_name：framework-ssh
  * @classname：UserInfo
  * @description:
  * @author: 罗铨生
