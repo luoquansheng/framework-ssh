@@ -47,8 +47,10 @@
                 <!-- 登录页面不需要拦截 -->
                 /login/** = anon
                 /register/** = anon
+                /static/** = anon
                 <!-- 登录页面以外的需要拦截认证 -->
                 /logout = logout
+                <!--/** = anon-->
                 /** = authc
             </value>
         </property>

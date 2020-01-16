@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.luoquansheng.entity">
+
+    <class name="Permission" table="t_permission">
+        <id name="id" length="32">
+            <generator class="uuid"/>
+        </id>
+        <property name="name" column="permission_name" length="50"/>
+        <property name="uri" column="url" length="1024"/>
+        <property name="icon" column="icon" length="1024"/>
+        <set name="roles" table="t_role_permission">
+            <key column="permission_id"></key>
+            <many-to-many class="Role" column="role_id"></many-to-many>
+        </set>
+        <many-to-one name="parent" class="Permission" column="parent_id"></many-to-one>
+        <set name="children" order-by="id" lazy="false">
+            <key column="parent_id"></key>
+            <one-to-many class="Permission"/>
+        </set>
+    </class>
+
+</hibernate-mapping>

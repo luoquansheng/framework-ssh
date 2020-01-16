@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.luoquansheng.entity">
+
+    <class name="Role" table="t_role">
+        <id name="id" length="32">
+            <generator class="uuid" />
+        </id>
+        <property name="name" column="role_name" length="50"/>
+        <property name="description" column="description" length="1024"/>
+        <set name="users" table="t_user_role">
+            <key column="role_id"></key>
+            <many-to-many class="UserInfo" column="user_id"></many-to-many>
+        </set>
+
+        <set name="permissions" table="t_role_permission" lazy="false">
+            <key column="role_id"></key>
+            <many-to-many class="Permission" column="permission_id"></many-to-many>
+        </set>
+    </class>
+
+</hibernate-mapping>

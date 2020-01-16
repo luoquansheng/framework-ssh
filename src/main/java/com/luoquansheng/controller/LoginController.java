@@ -37,20 +37,12 @@ public class LoginController {
         return "userInfo/register";
     }
 
-    @GetMapping("login")
-    public String sendLogin(@ModelAttribute UserInfo userInfo, Model model) {
-        model.addAttribute(userInfo);
-        return "login";
-    }
-
     @PostMapping("register")
     public String register(UserInfo userInfo, Model model) {
 
         try {
 
             this.userInfoService.register(userInfo);
-
-            model.addAttribute("userInfo", userInfo);
 
             return "redirect:info";
 
@@ -59,6 +51,12 @@ public class LoginController {
             model.addAttribute("e", e);
             return "error/403";
         }
+    }
+
+    @GetMapping("login")
+    public String sendLogin(@ModelAttribute UserInfo userInfo, Model model) {
+        model.addAttribute(userInfo);
+        return "login";
     }
 
     @PostMapping("login")
@@ -74,7 +72,7 @@ public class LoginController {
 
             System.out.println("登录成功：" + session);
 
-            return "userInfo/info";
+            return "redirect:index";
 
         } catch (Exception e) {
             model.addAttribute("e", e);

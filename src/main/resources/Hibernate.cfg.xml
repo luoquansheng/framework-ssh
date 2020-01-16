@@ -15,6 +15,8 @@
         <!-- <mapping resource="Article.hbm.xml"/> -->
         <!-- 导入映射配置 -->
         <mapping resource="mapping/UserInfo.hbm.xml" />
+        <mapping resource="mapping/Role.hbm.xml" />
+        <mapping resource="mapping/Permission.hbm.xml" />
 
     </session-factory>
 </hibernate-configuration>
